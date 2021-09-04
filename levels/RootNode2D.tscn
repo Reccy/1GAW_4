@@ -76,6 +76,24 @@ position = Vector2( -16, -304 )
 [node name="Node2D4" parent="." instance=ExtResource( 8 )]
 position = Vector2( -48, -304 )
 
+[node name="Node2D" parent="Node2D4" instance=ExtResource( 8 )]
+position = Vector2( 96, 384 )
+
+[node name="Node2D2" parent="Node2D4" instance=ExtResource( 8 )]
+position = Vector2( 64, 384 )
+
+[node name="Node2D3" parent="Node2D4" instance=ExtResource( 8 )]
+position = Vector2( 32, 384 )
+
+[node name="Node2D4" parent="Node2D4" instance=ExtResource( 8 )]
+position = Vector2( 32, 224 )
+
+[node name="Node2D5" parent="Node2D4" instance=ExtResource( 8 )]
+position = Vector2( 64, 224 )
+
+[node name="Node2D6" parent="Node2D4" instance=ExtResource( 8 )]
+position = Vector2( 96, 224 )
+
 [node name="Node2D5" parent="." instance=ExtResource( 8 )]
 position = Vector2( -80, -304 )
 
@@ -366,8 +384,8 @@ position = Vector2( -464, 304 )
 
 [node name="Node2D64" parent="." instance=ExtResource( 8 )]
 position = Vector2( 80, 304 )
-[connection signal="on_game_state_change" from="." to="Player" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="on_game_state_change" from="." to="IntroText" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="on_game_state_change" from="." to="InstructionText" method="_on_RootNode2D_on_game_state_change"]
+[connection signal="on_game_state_change" from="." to="Player" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="tween_all_completed" from="IntroText/Tween" to="IntroText" method="_on_Tween_tween_all_completed"]
 [connection signal="player_moved" from="Player" to="InstructionText" method="_on_Player_player_moved"]
