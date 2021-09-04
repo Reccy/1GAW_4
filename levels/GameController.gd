@@ -16,11 +16,11 @@ func _process(delta):
 	if currentState == STATES.WASD_INTRO:
 		processWasdIntro(delta)
 
-func processPreStart(delta):
+func processPreStart(_delta):
 	if (Input.is_action_pressed("game_start")):
 		changeState(STATES.WASD_INTRO)
 
-func processWasdIntro(delta):
+func processWasdIntro(_delta):
 	pass
 
 func changeState(newState):
