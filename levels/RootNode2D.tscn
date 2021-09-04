@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/AmaticSC-RegularFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://levels/IntroText.gd" type="Script" id=2]
+[ext_resource path="res://sound/gong.wav" type="AudioStream" id=3]
+[ext_resource path="res://levels/AmbientSFX.gd" type="Script" id=4]
+[ext_resource path="res://sound/ambient_bg.wav" type="AudioStream" id=5]
+[ext_resource path="res://levels/InstructionText.gd" type="Script" id=6]
+[ext_resource path="res://levels/GameController.gd" type="Script" id=7]
+
+[node name="RootNode2D" type="Camera2D"]
+current = true
+script = ExtResource( 7 )
+
+[node name="IntroText" type="RichTextLabel" parent="."]
+margin_left = -100.221
+margin_top = -45.1434
+margin_right = 260.779
+margin_bottom = 57.8566
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "PRESS ENTER"
+scroll_active = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="IntroText"]
+
+[node name="GongNoise" type="AudioStreamPlayer2D" parent="IntroText"]
+stream = ExtResource( 3 )
+volume_db = -13.126
+
+[node name="InstructionText" type="RichTextLabel" parent="."]
+margin_left = -183.284
+margin_top = -285.35
+margin_right = 177.716
+margin_bottom = -182.35
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "W, A, S, D to move"
+scroll_active = false
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmbientSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -80.0
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="AmbientSFX"]
+[connection signal="on_game_state_change" from="." to="IntroText" method="_on_RootNode2D_on_game_state_change"]

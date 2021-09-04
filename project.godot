@@ -8,19 +8,35 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Camera2D",
+"class": "GameController",
+"language": "GDScript",
+"path": "res://levels/GameController.gd"
+} ]
 _global_script_class_icons={
-
+"GameController": ""
 }
 
 [application]
 
 config/name="1GAW - Week 4"
+run/main_scene="res://levels/RootNode2D.tscn"
 config/icon="res://icon.png"
+
+[input]
+
+game_start={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"
