@@ -21,7 +21,3 @@ func get_rand_position():
 	var y = randi() % int(yRange * 2)
 	
 	return Vector2(x - xRange, y - yRange)
-
-func _process(_delta):
-	if Input.is_action_just_pressed("move_up"):
-		spawn_food()

@@ -21,6 +21,7 @@ footstepSprites = [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ) ]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = -2
 texture = ExtResource( 1 )
 
 [node name="FartAudio" type="AudioStreamPlayer2D" parent="."]

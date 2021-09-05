@@ -2,7 +2,7 @@ extends Area2D
 
 onready var sprite = $Sprite
 onready var fart_audio = $FartAudio
-onready var player = $"../RootNode2D/Player"
+onready var player = $"../Player"
 
 var playerExited = false
 

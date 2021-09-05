@@ -16,7 +16,7 @@ func _on_Player_player_moved():
 	if isDone:
 		return
 	
-	tween.interpolate_property(self, "margin_top", -285, -500, 1.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	tween.interpolate_property(self, "margin_top", margin_top, -500, 1.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()
 	
 	isDone = true

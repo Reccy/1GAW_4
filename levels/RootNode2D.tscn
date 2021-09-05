@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://fonts/AmaticSC-RegularFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://levels/IntroText.gd" type="Script" id=2]
@@ -10,9 +10,18 @@
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/food_spawner/FoodSpawner.gd" type="Script" id=10]
+[ext_resource path="res://fonts/AmaticSC-Regular.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://objects/wall/block_01.png" type="Texture" id=12]
+[ext_resource path="res://levels/GameOverText.gd" type="Script" id=13]
+[ext_resource path="res://levels/EatenText.gd" type="Script" id=14]
+
+[sub_resource type="DynamicFont" id=2]
+size = 52
+use_filter = true
+font_data = ExtResource( 11 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 448, 256 )
+extents = Vector2( 448, 224 )
 
 [node name="RootNode2D" type="Camera2D"]
 current = true
@@ -61,6 +70,44 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="InstructionText"]
 
+[node name="EatenText" type="RichTextLabel" parent="."]
+margin_left = -480.0
+margin_top = 224.0
+margin_right = -119.0
+margin_bottom = 288.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = " Food Eaten: 0"
+scroll_active = false
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="EatenText"]
+
+[node name="GameOverText" type="RichTextLabel" parent="."]
+margin_left = 96.0
+margin_top = 224.0
+margin_right = 489.0
+margin_bottom = 288.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "Game Over! (r to restart)"
+scroll_active = false
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="GameOverText"]
+
 [node name="AmbientSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 volume_db = -80.0
@@ -73,312 +120,424 @@ speed = 200.0
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( 16, -304 )
+z_index = -1
 
 [node name="Node2D2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -16, -304 )
+z_index = -1
 
 [node name="Node2D4" parent="." instance=ExtResource( 8 )]
 position = Vector2( -48, -304 )
+z_index = -1
 
 [node name="Node2D5" parent="." instance=ExtResource( 8 )]
 position = Vector2( -80, -304 )
+z_index = -1
 
 [node name="Node2D6" parent="." instance=ExtResource( 8 )]
 position = Vector2( -112, -304 )
+z_index = -1
 
 [node name="Node2D3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 48, -304 )
+z_index = -1
 
 [node name="Node2D8" parent="." instance=ExtResource( 8 )]
 position = Vector2( 176, -304 )
+z_index = -1
 
 [node name="Node2D9" parent="." instance=ExtResource( 8 )]
 position = Vector2( 144, -304 )
+z_index = -1
 
 [node name="Node2D10" parent="." instance=ExtResource( 8 )]
 position = Vector2( 112, -304 )
+z_index = -1
 
 [node name="Node2D12" parent="." instance=ExtResource( 8 )]
 position = Vector2( 272, -304 )
+z_index = -1
 
 [node name="Node2D13" parent="." instance=ExtResource( 8 )]
 position = Vector2( 240, -304 )
+z_index = -1
 
 [node name="Node2D14" parent="." instance=ExtResource( 8 )]
 position = Vector2( 208, -304 )
+z_index = -1
 
 [node name="Node2D15" parent="." instance=ExtResource( 8 )]
 position = Vector2( 368, -304 )
+z_index = -1
 
 [node name="Node2D16" parent="." instance=ExtResource( 8 )]
 position = Vector2( 336, -304 )
+z_index = -1
 
 [node name="Node2D17" parent="." instance=ExtResource( 8 )]
 position = Vector2( 304, -304 )
+z_index = -1
 
 [node name="Node2D18" parent="." instance=ExtResource( 8 )]
 position = Vector2( 464, -304 )
+z_index = -1
 
 [node name="Node2D19" parent="." instance=ExtResource( 8 )]
 position = Vector2( 432, -304 )
+z_index = -1
 
 [node name="Node2D20" parent="." instance=ExtResource( 8 )]
 position = Vector2( 400, -304 )
+z_index = -1
 
 [node name="Node2D23" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -304 )
+z_index = -1
 
 [node name="Node2D65" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -272 )
+z_index = -1
 
 [node name="Node2D66" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -240 )
+z_index = -1
 
 [node name="Node2D67" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -208 )
+z_index = -1
 
 [node name="Node2D68" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -176 )
+z_index = -1
 
 [node name="Node2D69" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -144 )
+z_index = -1
 
 [node name="Node2D70" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -112 )
+z_index = -1
 
 [node name="Node2D71" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -79.9997 )
+z_index = -1
 
 [node name="Node2D72" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -47.9997 )
+z_index = -1
 
 [node name="Node2D73" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, -15.9997 )
+z_index = -1
 
 [node name="Node2D74" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 16.0003 )
+z_index = -1
 
 [node name="Node2D75" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 48.0003 )
+z_index = -1
 
 [node name="Node2D76" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 80.0003 )
+z_index = -1
 
 [node name="Node2D77" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 112 )
+z_index = -1
 
 [node name="Node2D78" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 144 )
+z_index = -1
 
 [node name="Node2D79" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 176 )
+z_index = -1
 
 [node name="Node2D80" parent="." instance=ExtResource( 8 )]
 position = Vector2( 496, 208 )
-
-[node name="Node2D81" parent="." instance=ExtResource( 8 )]
-position = Vector2( 496, 240 )
-
-[node name="Node2D82" parent="." instance=ExtResource( 8 )]
-position = Vector2( 496, 272 )
+z_index = -1
 
 [node name="Node2D83" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -272 )
+z_index = -1
 
 [node name="Node2D84" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -240 )
+z_index = -1
 
 [node name="Node2D85" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -208 )
+z_index = -1
 
 [node name="Node2D86" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -176 )
+z_index = -1
 
 [node name="Node2D87" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -144 )
+z_index = -1
 
 [node name="Node2D88" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -112 )
+z_index = -1
 
 [node name="Node2D89" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -79.9997 )
+z_index = -1
 
 [node name="Node2D90" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -47.9997 )
+z_index = -1
 
 [node name="Node2D91" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -15.9997 )
+z_index = -1
 
 [node name="Node2D92" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 16.0003 )
+z_index = -1
 
 [node name="Node2D93" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 48.0003 )
+z_index = -1
 
 [node name="Node2D94" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 80.0003 )
+z_index = -1
 
 [node name="Node2D95" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 112 )
+z_index = -1
 
 [node name="Node2D96" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 144 )
+z_index = -1
 
 [node name="Node2D97" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 176 )
+z_index = -1
 
 [node name="Node2D98" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, 208 )
-
-[node name="Node2D99" parent="." instance=ExtResource( 8 )]
-position = Vector2( -496, 240 )
-
-[node name="Node2D100" parent="." instance=ExtResource( 8 )]
-position = Vector2( -496, 272 )
+z_index = -1
 
 [node name="Node2D21" parent="." instance=ExtResource( 8 )]
 position = Vector2( -272, -304 )
+z_index = -1
 
 [node name="Node2D22" parent="." instance=ExtResource( 8 )]
 position = Vector2( -176, -304 )
+z_index = -1
 
 [node name="Node2D24" parent="." instance=ExtResource( 8 )]
 position = Vector2( -208, -304 )
+z_index = -1
 
 [node name="Node2D25" parent="." instance=ExtResource( 8 )]
 position = Vector2( -240, -304 )
+z_index = -1
 
 [node name="Node2D26" parent="." instance=ExtResource( 8 )]
 position = Vector2( -144, -304 )
+z_index = -1
 
 [node name="Node2D27" parent="." instance=ExtResource( 8 )]
 position = Vector2( -432, -304 )
+z_index = -1
 
 [node name="Node2D28" parent="." instance=ExtResource( 8 )]
 position = Vector2( -336, -304 )
+z_index = -1
 
 [node name="Node2D29" parent="." instance=ExtResource( 8 )]
 position = Vector2( -368, -304 )
+z_index = -1
 
 [node name="Node2D30" parent="." instance=ExtResource( 8 )]
 position = Vector2( -400, -304 )
+z_index = -1
 
 [node name="Node2D31" parent="." instance=ExtResource( 8 )]
 position = Vector2( -304, -304 )
+z_index = -1
 
 [node name="Node2D33" parent="." instance=ExtResource( 8 )]
 position = Vector2( -496, -304 )
+z_index = -1
 
 [node name="Node2D36" parent="." instance=ExtResource( 8 )]
 position = Vector2( -464, -304 )
+z_index = -1
 
 [node name="Node2D11" parent="." instance=ExtResource( 8 )]
 position = Vector2( 80, -304 )
+z_index = -1
 
 [node name="Node2D7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 16, 304 )
+position = Vector2( 16, 240 )
+z_index = -1
 
 [node name="Node2D32" parent="." instance=ExtResource( 8 )]
-position = Vector2( -16, 304 )
+position = Vector2( -16, 240 )
+z_index = -1
 
 [node name="Node2D34" parent="." instance=ExtResource( 8 )]
-position = Vector2( -48, 304 )
+position = Vector2( -48, 240 )
+z_index = -1
 
 [node name="Node2D35" parent="." instance=ExtResource( 8 )]
-position = Vector2( -80, 304 )
+position = Vector2( -80, 240 )
+z_index = -1
 
 [node name="Node2D37" parent="." instance=ExtResource( 8 )]
-position = Vector2( -112, 304 )
+position = Vector2( -112, 240 )
+z_index = -1
 
 [node name="Node2D38" parent="." instance=ExtResource( 8 )]
-position = Vector2( 48, 304 )
+position = Vector2( 48, 240 )
+z_index = -1
 
 [node name="Node2D39" parent="." instance=ExtResource( 8 )]
-position = Vector2( 176, 304 )
+position = Vector2( 176, 240 )
+z_index = -1
 
 [node name="Node2D40" parent="." instance=ExtResource( 8 )]
-position = Vector2( 144, 304 )
+position = Vector2( 144, 240 )
+z_index = -1
 
 [node name="Node2D41" parent="." instance=ExtResource( 8 )]
-position = Vector2( 112, 304 )
+position = Vector2( 112, 240 )
+z_index = -1
 
 [node name="Node2D42" parent="." instance=ExtResource( 8 )]
-position = Vector2( 272, 304 )
+position = Vector2( 272, 240 )
+z_index = -1
 
 [node name="Node2D43" parent="." instance=ExtResource( 8 )]
-position = Vector2( 240, 304 )
+position = Vector2( 240, 240 )
+z_index = -1
 
 [node name="Node2D44" parent="." instance=ExtResource( 8 )]
-position = Vector2( 208, 304 )
+position = Vector2( 208, 240 )
+z_index = -1
 
 [node name="Node2D45" parent="." instance=ExtResource( 8 )]
-position = Vector2( 368, 304 )
+position = Vector2( 368, 240 )
+z_index = -1
 
 [node name="Node2D46" parent="." instance=ExtResource( 8 )]
-position = Vector2( 336, 304 )
+position = Vector2( 336, 240 )
+z_index = -1
 
 [node name="Node2D47" parent="." instance=ExtResource( 8 )]
-position = Vector2( 304, 304 )
+position = Vector2( 304, 240 )
+z_index = -1
 
 [node name="Node2D48" parent="." instance=ExtResource( 8 )]
-position = Vector2( 464, 304 )
+position = Vector2( 464, 240 )
+z_index = -1
 
 [node name="Node2D49" parent="." instance=ExtResource( 8 )]
-position = Vector2( 432, 304 )
+position = Vector2( 432, 240 )
+z_index = -1
 
 [node name="Node2D50" parent="." instance=ExtResource( 8 )]
-position = Vector2( 400, 304 )
+position = Vector2( 400, 240 )
+z_index = -1
 
 [node name="Node2D51" parent="." instance=ExtResource( 8 )]
-position = Vector2( 496, 304 )
+position = Vector2( 496, 240 )
+z_index = -1
 
 [node name="Node2D52" parent="." instance=ExtResource( 8 )]
-position = Vector2( -272, 304 )
+position = Vector2( -272, 240 )
+z_index = -1
 
 [node name="Node2D53" parent="." instance=ExtResource( 8 )]
-position = Vector2( -176, 304 )
+position = Vector2( -176, 240 )
+z_index = -1
 
 [node name="Node2D54" parent="." instance=ExtResource( 8 )]
-position = Vector2( -208, 304 )
+position = Vector2( -208, 240 )
+z_index = -1
 
 [node name="Node2D55" parent="." instance=ExtResource( 8 )]
-position = Vector2( -240, 304 )
+position = Vector2( -240, 240 )
+z_index = -1
 
 [node name="Node2D56" parent="." instance=ExtResource( 8 )]
-position = Vector2( -144, 304 )
+position = Vector2( -144, 240 )
+z_index = -1
 
 [node name="Node2D57" parent="." instance=ExtResource( 8 )]
-position = Vector2( -432, 304 )
+position = Vector2( -432, 240 )
+z_index = -1
 
 [node name="Node2D58" parent="." instance=ExtResource( 8 )]
-position = Vector2( -336, 304 )
+position = Vector2( -336, 240 )
+z_index = -1
 
 [node name="Node2D59" parent="." instance=ExtResource( 8 )]
-position = Vector2( -368, 304 )
+position = Vector2( -368, 240 )
+z_index = -1
 
 [node name="Node2D60" parent="." instance=ExtResource( 8 )]
-position = Vector2( -400, 304 )
+position = Vector2( -400, 240 )
+z_index = -1
 
 [node name="Node2D61" parent="." instance=ExtResource( 8 )]
-position = Vector2( -304, 304 )
+position = Vector2( -304, 240 )
+z_index = -1
 
 [node name="Node2D62" parent="." instance=ExtResource( 8 )]
-position = Vector2( -496, 304 )
+position = Vector2( -496, 240 )
+z_index = -1
 
 [node name="Node2D63" parent="." instance=ExtResource( 8 )]
-position = Vector2( -464, 304 )
+position = Vector2( -464, 240 )
+z_index = -1
 
 [node name="Node2D64" parent="." instance=ExtResource( 8 )]
-position = Vector2( 80, 304 )
+position = Vector2( 80, 240 )
+z_index = -1
 
 [node name="FoodSpawner" type="Area2D" parent="."]
 script = ExtResource( 10 )
 
 [node name="FoodSpawnerShape" type="CollisionShape2D" parent="FoodSpawner"]
-position = Vector2( 0, 0.000300407 )
+position = Vector2( 0, -31.9997 )
 shape = SubResource( 1 )
+
+[node name="BottomSprite" type="Sprite" parent="."]
+position = Vector2( 9.53674e-07, 408 )
+scale = Vector2( 41.75, 10.5 )
+z_index = -5
+texture = ExtResource( 12 )
+
+[node name="BottomSprite2" type="Sprite" parent="."]
+position = Vector2( 582, 92 )
+scale = Vector2( 5.375, 30.25 )
+z_index = -5
+texture = ExtResource( 12 )
+
+[node name="BottomSprite3" type="Sprite" parent="."]
+position = Vector2( -570, 112 )
+scale = Vector2( 5.375, 30.25 )
+z_index = -5
+texture = ExtResource( 12 )
+
+[node name="BottomSprite4" type="Sprite" parent="."]
+position = Vector2( 16, -392 )
+scale = Vector2( 42.8438, 5.5625 )
+z_index = -5
+texture = ExtResource( 12 )
 [connection signal="on_game_state_change" from="." to="InstructionText" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="on_game_state_change" from="." to="IntroText" method="_on_RootNode2D_on_game_state_change"]
+[connection signal="on_game_state_change" from="." to="GameOverText" method="_on_RootNode2D_on_game_state_change"]
+[connection signal="on_game_state_change" from="." to="EatenText" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="on_game_state_change" from="." to="Player" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="tween_all_completed" from="IntroText/Tween" to="IntroText" method="_on_Tween_tween_all_completed"]
+[connection signal="player_ate" from="Player" to="EatenText" method="_on_Player_player_ate"]
+[connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
 [connection signal="player_moved" from="Player" to="InstructionText" method="_on_Player_player_moved"]
