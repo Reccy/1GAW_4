@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/AmaticSC-RegularFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://levels/IntroText.gd" type="Script" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://levels/GameController.gd" type="Script" id=7]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/food_spawner/FoodSpawner.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 448, 256 )
 
 [node name="RootNode2D" type="Camera2D"]
 current = true
@@ -75,24 +79,6 @@ position = Vector2( -16, -304 )
 
 [node name="Node2D4" parent="." instance=ExtResource( 8 )]
 position = Vector2( -48, -304 )
-
-[node name="Node2D" parent="Node2D4" instance=ExtResource( 8 )]
-position = Vector2( 96, 384 )
-
-[node name="Node2D2" parent="Node2D4" instance=ExtResource( 8 )]
-position = Vector2( 64, 384 )
-
-[node name="Node2D3" parent="Node2D4" instance=ExtResource( 8 )]
-position = Vector2( 32, 384 )
-
-[node name="Node2D4" parent="Node2D4" instance=ExtResource( 8 )]
-position = Vector2( 32, 224 )
-
-[node name="Node2D5" parent="Node2D4" instance=ExtResource( 8 )]
-position = Vector2( 64, 224 )
-
-[node name="Node2D6" parent="Node2D4" instance=ExtResource( 8 )]
-position = Vector2( 96, 224 )
 
 [node name="Node2D5" parent="." instance=ExtResource( 8 )]
 position = Vector2( -80, -304 )
@@ -384,8 +370,15 @@ position = Vector2( -464, 304 )
 
 [node name="Node2D64" parent="." instance=ExtResource( 8 )]
 position = Vector2( 80, 304 )
-[connection signal="on_game_state_change" from="." to="IntroText" method="_on_RootNode2D_on_game_state_change"]
+
+[node name="FoodSpawner" type="Area2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="FoodSpawnerShape" type="CollisionShape2D" parent="FoodSpawner"]
+position = Vector2( 0, 0.000300407 )
+shape = SubResource( 1 )
 [connection signal="on_game_state_change" from="." to="InstructionText" method="_on_RootNode2D_on_game_state_change"]
+[connection signal="on_game_state_change" from="." to="IntroText" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="on_game_state_change" from="." to="Player" method="_on_RootNode2D_on_game_state_change"]
 [connection signal="tween_all_completed" from="IntroText/Tween" to="IntroText" method="_on_Tween_tween_all_completed"]
 [connection signal="player_moved" from="Player" to="InstructionText" method="_on_Player_player_moved"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/food/Food.gd" type="Script" id=1]
+[ext_resource path="res://objects/food/food_02.png" type="Texture" id=2]
+[ext_resource path="res://objects/food/food_01.png" type="Texture" id=3]
+[ext_resource path="res://objects/food/food_03.png" type="Texture" id=4]
+[ext_resource path="res://objects/food/food_04.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 0.0
+
+[node name="Food" type="Area2D"]
+script = ExtResource( 1 )
+foodSprites = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Food_body_entered"]

@@ -1,5 +1,10 @@
 Game by Aaron Meaney (@theReccy)
+Developed for the "Stop Waiting for Godot" Game Jam by Terry Cavanagh (https://terrycavanaghgames.com/) (https://itch.io/jam/stop-waiting-for-godot)
 
 Assets used:
 "Wind Chime, Gamelan Gong, A.wav" by InspectorJ (www.jshaw.co.uk) of Freesound.org
 "ambient meadow near forest single bird and eurasian cranes in background stereo XY MK012.wav" by Soundholder (www.soundholder.com) of Freesound.org
+"small-realpoot113.wav" by Jixolros of Freesound.org
+"small-realpoot114.wav" by Jixolros of Freesound.org
+"Damage Hit Voice Vocal" by dersuperanton of Freesound.org
+"Nom Noise" by NillyPlays of Freesound.org
